@@ -1,0 +1,66 @@
+﻿@model List<MvcProjectArch.UI.Models.InvoiceModel>
+@{
+    ViewBag.Title = "Checkouts";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Alışveriş Sepetim
+
+        <small>Ürünler</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Ürünler</a></li>
+        <li class="active">Alışveriş Sepetim</li>
+    </ol>
+
+</section>
+<section class="content">
+    @if(Model.ToList().Count>0)
+    { 
+        
+    decimal totalPrice = 0;
+        <table>
+            <tr>
+                <td>Ürün Adı</td>
+                <td>Kategori</td>
+                <td>Marka</td>
+                <td>Model</td>
+                 <td>Fiyat</td>
+                <td></td>
+            </tr>
+            @foreach (var item in Model.ToList())
+            {
+                totalPrice = totalPrice + item.Product.ProductPrice;
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Product.Category.CategoryName</td>
+                    <td>@item.Product.BrandName</td>
+                    <td>@item.Product.ModelName</td>
+                    <td>@item.Product.ProductPrice</td>
+                    <td><a href="/Product/CheckoutsDelete/@item.InvoiceId">Kaldır</a></td>
+                </tr>
+            }
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td><b>Toplam Fiyat</b></td>
+                    <td>:</td>
+                    <td>@totalPrice.ToString("C")</td>
+                    <td colspan="2">@using(Html.BeginForm()){<button type="submit" class="btn btn-success">Alışverişi Tamamla</button>}</td>
+                </tr>
+            </tfoot>
+
+        </table>
+    }
+    else if(ViewBag.message!=null)
+    {
+        <p>@ViewBag.message</p>
+    }
+    else
+    {
+      <p>Sepetiniz Boş:(</p>  
+    }
+</section>

@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{D34E1002-06F5-493A-A3AC-CB7B8959CB81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArch.Core", "MvcProjectArch.Core\MvcProjectArch.Core.csproj", "{13430A7B-4062-4B47-88F7-5FA369BE71EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArh.Entities", "MvcProjectArh.Entities\MvcProjectArh.Entities.csproj", "{26039513-FEED-44F2-9E5E-7EFA833079C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArch.Data", "MvcProjectArch.Data\MvcProjectArch.Data.csproj", "{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArch.Services", "MvcProjectArch.Services\MvcProjectArch.Services.csproj", "{D014A182-C8D2-493A-8BCD-DA37C37039B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ulitilities", "Ulitilities", "{12F8D08C-14D1-4B8F-8960-D6449DEE6351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArch.Ulitilities", "MvcProjectArch.Ulitilities\MvcProjectArch.Ulitilities.csproj", "{7FAC00D4-525D-40EE-8103-9B43ED542A64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{448E55C8-F68D-436E-A387-2AC3C32BD887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProjectArch.UI", "MvcProjectArch.UI\MvcProjectArch.UI.csproj", "{79A85107-872B-4D18-8BB9-B43ECD92FD94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13430A7B-4062-4B47-88F7-5FA369BE71EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13430A7B-4062-4B47-88F7-5FA369BE71EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13430A7B-4062-4B47-88F7-5FA369BE71EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13430A7B-4062-4B47-88F7-5FA369BE71EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26039513-FEED-44F2-9E5E-7EFA833079C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26039513-FEED-44F2-9E5E-7EFA833079C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26039513-FEED-44F2-9E5E-7EFA833079C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26039513-FEED-44F2-9E5E-7EFA833079C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D014A182-C8D2-493A-8BCD-DA37C37039B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D014A182-C8D2-493A-8BCD-DA37C37039B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D014A182-C8D2-493A-8BCD-DA37C37039B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D014A182-C8D2-493A-8BCD-DA37C37039B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FAC00D4-525D-40EE-8103-9B43ED542A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FAC00D4-525D-40EE-8103-9B43ED542A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FAC00D4-525D-40EE-8103-9B43ED542A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FAC00D4-525D-40EE-8103-9B43ED542A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A85107-872B-4D18-8BB9-B43ECD92FD94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A85107-872B-4D18-8BB9-B43ECD92FD94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A85107-872B-4D18-8BB9-B43ECD92FD94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A85107-872B-4D18-8BB9-B43ECD92FD94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13430A7B-4062-4B47-88F7-5FA369BE71EB} = {D34E1002-06F5-493A-A3AC-CB7B8959CB81}
+		{26039513-FEED-44F2-9E5E-7EFA833079C0} = {D34E1002-06F5-493A-A3AC-CB7B8959CB81}
+		{E703B2A4-3A4B-4A7C-A12B-D380F5B5F0F0} = {D34E1002-06F5-493A-A3AC-CB7B8959CB81}
+		{D014A182-C8D2-493A-8BCD-DA37C37039B2} = {D34E1002-06F5-493A-A3AC-CB7B8959CB81}
+		{7FAC00D4-525D-40EE-8103-9B43ED542A64} = {12F8D08C-14D1-4B8F-8960-D6449DEE6351}
+		{79A85107-872B-4D18-8BB9-B43ECD92FD94} = {448E55C8-F68D-436E-A387-2AC3C32BD887}
+	EndGlobalSection
+EndGlobal

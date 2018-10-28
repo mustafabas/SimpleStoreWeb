@@ -1,0 +1,73 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.CategoryModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        @if (Model.SelectedCategoryName != null)
+        {
+            @Model.SelectedCategoryName
+        }
+        else
+        {
+            <p>Kategoriler</p>
+        }
+
+        <small>Kategori Yönetimi</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Kategori Yönetimi</a></li>
+        <li class="active">Kategoriler</li>
+    </ol>
+</section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="col-md-12">
+                <a href="/CategoryManagment/Add?categoryParentId=1" class="btn btn-info"><i class="fa fa-plus-square-o"></i> Yeni ürün grubu ekle</a>
+                <a href="/CategoryManagment/Add" class="btn btn-info"><i class="fa fa-plus-square-o"></i>Yeni Kategori Ekle</a>
+
+       
+         
+            @if (Model.SuccessMessage != null)
+            {
+                <div class="callout callout-info">
+                    <h4></h4>
+                    <p>@Model.SuccessMessage</p>
+                </div>
+            }
+            <div class="box-body table-responsive" style="margin-top:10px;">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sıra</th>
+                            <th>Kategori Adı</th>
+                            <th>Alt Kategori</th>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i=0;}
+                        @foreach (var item in Model.Categories)
+                        {
+                            <tr>
+                                <td>@{i++;} @i</td>
+                                <td>
+                                    @item.CategoryName
+                                   
+                                </td>
+                                <td><a href="@item.Url">@if (item.CategoryType == (byte)CategoryType.Category) {<p>Ürün Gruplarını Gör</p> }</a></td>
+                                <td><a href="/CategoryManagement/Delete/@item.ID">Sil</a>|<a href="/CategoryManagement/Delete/@item.ID">Düzenle</a></td>
+                            </tr>
+                     
+                        }
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div>
+        </section>
+
+   
+        

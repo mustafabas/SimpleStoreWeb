@@ -1,0 +1,8 @@
+C:\Users\Mustafa\Desktop\MvcProjectArch\MvcProjectArch\MvcProjectArh.Entities\bin\Debug\MvcProjectArh.Entities.dll
+C:\Users\Mustafa\Desktop\MvcProjectArch\MvcProjectArch\MvcProjectArh.Entities\bin\Debug\MvcProjectArh.Entities.pdb
+C:\Users\Mustafa\Desktop\MvcProjectArch\MvcProjectArch\MvcProjectArh.Entities\obj\Debug\MvcProjectArh.Entities.dll
+C:\Users\Mustafa\Desktop\MvcProjectArch\MvcProjectArch\MvcProjectArh.Entities\obj\Debug\MvcProjectArh.Entities.pdb
+C:\Users\Mustafa\Desktop\Project-3\MvcProjectArch\MvcProjectArh.Entities\bin\Debug\MvcProjectArh.Entities.dll
+C:\Users\Mustafa\Desktop\Project-3\MvcProjectArch\MvcProjectArh.Entities\bin\Debug\MvcProjectArh.Entities.pdb
+C:\Users\Mustafa\Desktop\Project-3\MvcProjectArch\MvcProjectArh.Entities\obj\Debug\MvcProjectArh.Entities.dll
+C:\Users\Mustafa\Desktop\Project-3\MvcProjectArch\MvcProjectArh.Entities\obj\Debug\MvcProjectArh.Entities.pdb

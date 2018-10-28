@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/MinimizeCss/MainCss")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    @Scripts.Render("~/Content/MinimizeJs/MainScript")
+    @RenderSection("Header",false)
+</head>
+<body class="skin-blue">
+    <!-- header logo: style can be found in header.less -->
+    <header class="header">
+        <a href="/Home/index" class="logo">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+          Basit E-shop
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                
+                    <!-- Notifications: style can be found in dropdown.less -->
+            
+                    <!-- Tasks: style can be found in dropdown.less -->
+                    @if (CurrentUser.Name != "")
+                    {
+                        
+              
+                    if (CurrentUser.Role == Convert.ToString((byte)MvcProjectArch.UI.Models.UserType.Admin))
+                    {
+
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i>
+                                <span class="label label-danger">9</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">Admin Yönetimi</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <!-- Task item -->
+                                            <a href="/ProductManagment/index">
+                                                <h3>
+                                                    Ürün Yönetimi
+                                            
+                                                </h3>
+                                            </a>
+                                        </li><!-- end task item -->
+                                        <li>
+                                            <!-- Task item -->
+                                            <a href="/CategoryManagment/index">
+                                                <h3>
+                                                   Kategori Yönetimi
+                                                   
+                                                </h3>
+                                             
+                                            </a>
+                                        </li><!-- end task item -->
+                             
+                                    </ul>
+                                </li>
+                     
+                            </ul>
+                        </li>
+                    }
+                    }
+                    <!-- User Account: style can be found in dropdown.less -->
+                    @if (CurrentUser.Name != "")
+                    {
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="glyphicon glyphicon-user"></i>
+                                <span>@CurrentUser.Name <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+                                    <img src="/Content/img/avatar3.png" class="img-circle" alt="User Image" />
+                                    <p>
+                                       @CurrentUser.Name
+                                      
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                @*<li class="user-body">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </li>*@
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        @*<a href="#" class="btn btn-default btn-flat">Profile</a>*@
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/Auth/logout" class="btn btn-default btn-flat">Çıkış Yap</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="left-side sidebar-offcanvas">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="/Content/img/avatar3.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        @if(CurrentUser.Name!="")
+                        { 
+                        <p>Merhaba, @CurrentUser.Name</p>
+    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                        }
+                        else
+                        {
+                            <p>Merhaba, Ziyaretçi</p>
+                            <p>Daha iyi hizmet alabilmek için <a href="/auth/login">giriş yapabilirsiniz</a></p>
+                        }
+                        
+                     
+                    </div>
+                </div>
+                <!-- search form -->
+                @if (CurrentUser.Name != "")
+                {
+                    if (CurrentUser.Role == Convert.ToString((byte)UserType.Admin))
+                    {
+                        <form action="/ProductManagment/ProductSearch" method="get" class="sidebar-form">
+
+                            <input type="text" name="ProductGroupName" class="form-control" placeholder="Ürün Adı" required />
+                            <input type="text" name="BrandName" class="form-control" placeholder="Marka Adı" required />
+                            <input type="text" name="ModelName" class="form-control" placeholder="Model Adı" required />
+                            <button type="submit" class="btn btn-info">Ara</button>
+
+
+                        </form>
+                    }
+                    else
+                    {
+                        <form action="/Home/ProductCategorie" method="get" class="sidebar-form">
+                            <input type="text" name="productGoupName" class="form-control" placeholder="Ürün Adı" />
+                            <input type="text" name="PriceBegin" class="form-control" placeholder="Fiyat Başlangıç" />
+                            <input type="text" name="PriceLast" class="form-control" placeholder="Fiyat Son" />
+                            <button type="submit" class="btn btn-info">Ara</button>
+                        </form>
+                    }
+                }
+      
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a href="/Home/index">
+                            <i class="fa fa-dashboard"></i> <span>Kategoriler</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="/Home/TreeDepth">
+                            <span>Ürün Ağaç Bilgileri</span>
+                        </a>
+                    </li>
+
+                    @if (CurrentUser.Name != "")
+                    {
+                        if (CurrentUser.Role == Convert.ToString((byte)UserType.Customer))
+                        {
+                          
+                            <li class="active">
+                                <a href="/Product/Checkouts">
+                                    <span>Alışveriş Sepetim</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="/Product/nAdetUrunAdd">
+                                    <span>N Adet En Ucuz Ürün Bul/Ekle</span>
+                                </a>
+                            </li>
+    <li class="treeview">
+        <a href="/">
+            <span>Sıralama</span>
+                <i class="fa fa-angle-left pull-right"></i>
+        </a>
+            <ul class="treeview-menu">
+        
+                    <li><a href="/Home/TraverByType?type=inorder"><i class="fa fa-angle-double-right"></i>inorder</a></li>
+                <li><a href="/Home/TraverByType?type=postorder"><i class="fa fa-angle-double-right"></i>postorder</a></li>
+                <li><a href="/Home/TraverByType?type=preorder"><i class="fa fa-angle-double-right"></i>preorder</a></li>
+            </ul>
+    </li>
+
+                        }
+
+
+                    }
+
+                    @*<li>
+                        <a href="pages/widgets.html">
+                            <i class="fa fa-th"></i> <span>Widgets</span> <small class="badge pull-right bg-green">new</small>
+                        </a>
+                    </li>*@
+                  @Html.Action("GetLeftMenuShared","Home")
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">
+            <!-- Content Header (Page header) -->
+            @RenderBody()
+
+            
+        </aside><!-- /.right-side -->
+    </div><!-- ./wrapper -->
+    <!-- jQuery 2.0.2 -->
+
+       
+</body>
+
+     
+   
+
+
+</html>

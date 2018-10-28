@@ -1,0 +1,58 @@
+﻿@model List<MvcProjectArch.UI.Models.Catolog.ProductItemModel>
+@{
+    ViewBag.Title = "GetProductByKey";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+      @ViewBag.Key ürünleri
+        <small>Ürünler</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Ürünler</a></li>
+        <li class="active">Alışveriş Sepetim</li>
+    </ol>
+
+</section>
+<section class="content">
+    @if (Model.ToList().Count > 0)
+    {
+
+        decimal totalPrice = 0;
+        <table>
+            <tr>
+                <td>Ürün Adı</td>
+                <td>Kategori</td>
+                <td>Marka</td>
+                <td>Model</td>
+                <td>Fiyat</td>
+                <td></td>
+            </tr>
+            @foreach (var item in Model.ToList())
+            {
+                totalPrice = totalPrice + item.ProductPrice;
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.CategoryName</td>
+                    <td>@item.BrandName</td>
+                    <td>@item.ModelName</td>
+                    <td>@item.ProductPrice</td>
+                    <td><a href="/Product/CheckoutAdd/@item.ProductId">Sepete Ekle</a></td>
+                </tr>
+            }
+   
+
+        </table>
+    }
+    else if (ViewBag.message != null)
+    {
+        <p>@ViewBag.message</p>
+    }
+    else
+    {
+        <p>Sepetiniz Boş:(</p>
+    }
+</section>
+

@@ -1,0 +1,81 @@
+﻿@model MvcProjectArch.UI.Models.CreateAccountModel
+<!DOCTYPE html>
+<html class="bg-black">
+<head>
+    <meta charset="UTF-8">
+    <title>Hızlı Kayıt Ol</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- bootstrap 3.0.2 -->
+    @Styles.Render("~/Content/MinimizeCss/MainCss")
+    @Scripts.Render("~/Content/MinimizeJs/MainScript")
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="bg-black">
+    <div class="form-box" id="login-box">
+        <div class="header">Hızlı Kayıt Ol</div>
+        @using (Html.BeginForm()) {
+            <div class="body bg-gray">
+                @if (Model.Created == true)
+                {
+                    <div class="callout callout-info">
+                        <h4>Tebrikler!</h4>
+                        <p>Kayıt oldun, şimdi alışverişin keyfini çıkarabilirsin.</p>
+                    </div>
+                }
+                <div class="form-group">
+                   
+                    @Html.TextBoxFor(x => x.NameSurname, new {@class="form-control",@placeholder="İsim Soyisim" })
+                 
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+                
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Email" })
+
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control", @placeholder = "Şifre.." })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Salary, new { @class = "form-control", @placeholder = "Maaş" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Age, new { @class = "form-control", @placeholder = "Yaş" })
+                </div>
+                <div class="form-group">
+                    <label>@Html.RadioButton("Condition", "1", new {@checked=true }) Evli</label>
+                    <label>  @Html.RadioButton("Condition","0") Bekar</label>
+                </div>
+                <div class="form-group">
+                    @Html.DropDownListFor(x => x.City, Model.Cities, new { @class = "form-control" }) 
+                </div>
+                <div class="form-group">
+                    @Html.DropDownListFor(x => x.Occupation, Model.Occupations, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="footer">
+                <button type="submit" class="btn bg-olive btn-block">Kayıt Ol</button>
+                <a href="/auth/login" class="text-center">Zaten Üyeyim</a>
+        
+            </div>
+        }
+        @*<div class="margin text-center">
+            <span>Register using social networks</span>
+            <br />
+            <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
+            <button class="btn bg-aqua btn-circle"><i class="fa fa-twitter"></i></button>
+            <button class="btn bg-red btn-circle"><i class="fa fa-google-plus"></i></button>
+        </div>*@
+    </div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.ProductGroup
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+</head>
+<body>
+    <div>
+        <h4>ProductGroup</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+               
+                @Html.DisplayNameFor(model => model.ProductGroupName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ProductGroupName)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

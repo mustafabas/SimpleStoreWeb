@@ -1,0 +1,42 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.NAdetUrunGetModel
+@{
+    ViewBag.Title = "nAdetUrunGet";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Ucuz Ürünleri Ekle
+
+        <small>Ürünler</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Ürünler</a></li>
+        <li class="active">Ucuz Ürünleri Ekle</li>
+    </ol>
+
+</section>
+<section class="content">
+    <div class="col-md-6">
+        @if(Model.Products.Count==0)
+        {
+            <p>Ürün Bulunamadı</p>
+        }
+        else
+        {
+            <div class="col-md-12">
+                <div class="col-md-12">@Model.CategoryName ' kategorisinde en ucuz ürünler</div>
+                <table>
+                   
+                    @foreach (var item in Model.Products)
+                    {
+                        <tr><td>@item.ProductName</td><td>@item.ProductPrice</td><td><span style="color:#25a54b">Sepete Eklendi</span></td></tr>
+                    }
+                </table>
+            </div>
+        }
+    </div>
+</section>
+
+

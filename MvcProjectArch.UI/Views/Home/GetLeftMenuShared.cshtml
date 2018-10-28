@@ -1,0 +1,26 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.LeftMenuModel
+
+@foreach (var item in Model.LeftMenuTop)
+{
+    <li class="treeview">
+        <a href="/index/test">
+    
+            <span>@item.CategoryName</span>
+            @if (item.SubMenu.Count > 0)
+            {
+                <i class="fa fa-angle-left pull-right"></i>
+            }
+      
+        </a>
+        @if (item.SubMenu.Count > 0)
+        {
+            <ul class="treeview-menu">
+                @foreach (var itemSub in item.SubMenu)
+                {
+                    <li><a href="/Home/ProductCategorie?productGoupName=@itemSub.CategoryName"><i class="fa fa-angle-double-right"></i>@itemSub.CategoryName</a></li>
+                }
+            </ul>
+        }
+   
+    </li>
+}

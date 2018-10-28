@@ -1,0 +1,54 @@
+﻿@model MvcProjectArch.UI.Models.HomeModel1
+@{
+    ViewBag.Title = "İndex";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+       Bulunan Ürün Listesi
+        <small>Ürünlerimiz...</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Anasayfa</a></li>
+        <li class="active">Ürünler</li>
+    </ol>
+</section>
+    <!-- Main content -->
+    <section class="content">
+    
+            <div class="row">
+                <div class="col-md-12"><h2>@ViewBag.CategoryName <br />@ViewBag.PriceBegin <br />@ViewBag.PriceLast</h2></div>
+                @if (Model.Products.Count>0)
+                { 
+                        foreach (var item2 in Model.Products)
+                        {
+                            <div class="col-md-3">
+                                <img src="http://placehold.it/250x100" alt="@item2.ProductName" class='margin' />
+                                <div class="col-md-12"><b>@item2.ProductName</b></div>
+                                <div class="col-md-12">@item2.ProductDescription</div>
+                                <div class="col-md-6">@item2.ProductPrice</div>
+                                <div class="col-md-6"><a href="/Product/CheckoutAdd/@item2.ProductId" class="btn btn-success">Sepete Ekle</a></div>
+                                <div class="col-md-12">
+                                    @{  if (item2.ProductDescription != null)
+                                      {
+                                          string[] descs = item2.ProductDescription.Split(',');
+                                          foreach (var item in descs)
+                                          {
+                                            <div class="col-md-4"><a href="/Product/GetProductByKey?key=@item">@item</a></div>
+                                          }
+                                      }
+                                    }
+                                </div>
+                            </div>
+                        }
+                }
+                else
+                {
+                  
+                    <p>Ürün Bulunamadı</p>
+                }
+            </div>
+    </section><!-- /.content -->
+

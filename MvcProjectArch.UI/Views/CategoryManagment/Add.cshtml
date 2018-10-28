@@ -1,0 +1,74 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.CategoryAddModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+<section class="content-header">
+        <h1>
+            @if (Model.CategoryType == (byte)CategoryType.ProductGroup)
+            {
+                <p>Ürün Gurubu Ekle</p>
+            }
+            else
+            {
+                <p>Kategori Ekle</p>
+            }
+
+        <small>Kategori Yönetimi</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Kategori Yönetimi</a></li>
+        <li class="active">Kategoriler</li>
+    </ol>
+
+</section>
+<section class="content">
+
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-6">
+            <div class="box box-success">
+                <div class="box-header">
+
+                </div>
+                <div class="box-body">
+                    @if (Model.CategoryType == (byte)CategoryType.ProductGroup)
+                    {
+                        <div class="row">
+                            <label class="col-md-3">Kategori:</label>
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(m => m.CategoryParentId, Model.TopCategories, new { @class = "form-control" })
+                            </div>
+
+                        </div>
+                    }
+                    <div class="row" style="margin-top:10px;">
+                        <label class="col-md-3">@if (Model.CategoryType == (byte)CategoryType.ProductGroup)
+            {
+                            <span>Ürün Gurubu adı</span>
+            }
+                                                else
+                                                {
+                                                    <span>Kategori Adı</span>
+                                                }</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:10px;">
+                        <div class="col-md-10">
+                            <button type="submit" class="btn btn-success">Ekle</button>
+                        </div>
+                    </div>
+
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+
+    }
+
+
+</section>
+
+

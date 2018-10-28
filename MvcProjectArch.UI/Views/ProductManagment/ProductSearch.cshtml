@@ -1,0 +1,56 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.ProductSearchModel
+@{
+    ViewBag.Title = "ProductSearch";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Ürünler
+
+        <small>Ürün Arama</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>   Ürünler</a></li>
+        <li class="active">Ürün Arama</li>
+    </ol>
+</section>
+<section class="content">
+        Ürün Grubu:@Model.ProductGroupName<br />
+        Marka Adı:@Model.BrandName<br />
+        Model Adı:@Model.ModelName
+    @if (Model.Products.Count > 0)
+    {
+        <table>
+            <tr>
+                <th>
+                    Ürün Adı
+                </th>
+                <th>Marka Adı</th>
+                <th>Model Adı</th>
+                <th>Fiyat</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.BrandName</td>
+                    <td>@item.ModelName</td>
+                    <td>@item.ProductPrice.ToString("C")</td>
+                    <td><a href="/ProductManagement/Delete/@item.ProductId">Sil</a>||<a href="/ProductManagement/Edit/@item.ProductId">Düzenle</a></td>
+                </tr>
+            }
+          
+        </table>
+    }
+    else
+    {
+        <div class="callout callout-danger">
+            <h4>Üzgünüz:(</h4>
+            <p>Aradığın Kriterlerde Ürün Bulunamadı</p>
+        </div>
+    }
+    
+</section>
+

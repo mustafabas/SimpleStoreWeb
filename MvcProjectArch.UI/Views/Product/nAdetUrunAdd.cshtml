@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "nAdetUrunAdd";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+     Ucuz Ürünleri Ekle
+
+        <small>Ürünler</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Ürünler</a></li>
+        <li class="active">Ucuz Ürünleri Ekle</li>
+    </ol>
+
+</section>
+<section class="content">
+    @using (Html.BeginForm("nAdetUrunGet", "Product", FormMethod.Get)) { 
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="col-md-3">Kategori Adı</label>
+            <div class="col-md-9">
+                @Html.TextBox("categoryName", "", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-3">Adet</label>
+            <div class="col-md-9">
+                @Html.TextBox("count", "", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+               <input type="submit" class="btn btn-success" value="Ekle" />
+            </div>
+        </div>
+    </div>
+    }
+</section>
+
+
+

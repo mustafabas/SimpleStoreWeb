@@ -1,0 +1,148 @@
+﻿@model MvcProjectArch.UI.Models.Catolog.ProductAddModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+@section header{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#CategoryId').change(function () {
+                alert(this.value);
+                $.ajax({
+                    url: '/CategoryManagment/GetProductGroup',
+                    data: { categoryId: this.value },
+                    type: 'post',
+                    success: function (data) {
+                        $("#ProductGroup").html("");
+                        if (data.length > 0) {
+                            $("#productGDisplay").show();
+                            $("#ProductGroup").append("<option value='0' selected >Seçiniz</option>");
+                            $.each(data, function (key, value) {
+                                $("#ProductGroup").append("<option value='" + value.ID + "'>" + value.CategoryName + "</option>");
+                            });
+                        }
+                    },
+                    error: function (x, l, e) {
+                    }
+                });
+            })
+        })
+    </script>
+}
+<section class="content-header">
+    <h1>
+        Ürün Düzenle
+
+        <small>Ürün Yönetimi</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Ürün Yönetimi</a></li>
+        <li class="active">Ürün Düzenle</li>
+    </ol>
+
+</section>
+<section class="content">
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-6">
+            @if (Model.ProductAddedCheck)
+            {
+                <div class="callout callout-info">
+                    <h4></h4>
+                    <p>Ürününüz başarıyla düzenlenmiştir.</p>
+                </div>
+            }
+            <div class="box box-success">
+                <div class="box-header">
+
+                </div>
+                <div class="box-body row">
+                    <div class="col-md-12">
+                        <div class="row" style="margin-top:10px;">
+                            <label class="col-md-3">
+                                Kategori
+                            </label>
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(x => x.CategoryId, Model.Categories, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row" id="productGDisplay" style="display:none;">
+                            <label class="col-md-3">
+                                Ürün Grubu
+                            </label>
+                            <div class="col-md-9">
+                                <select name="ProductGroupId" id="ProductGroup" class="form-control"></select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-md-3">
+                                Marka Adı
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.BrandName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3">
+                                Model Adı
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.ModelName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3">
+                                Ürün Adı
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3">
+                                Satış Fiyat
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3">
+                                Maliyet
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.Cost, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-md-3">
+                                Miktar
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.ProductNumber, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        @Html.Hidden("hdnCategoryId",Model.CategoryId)
+                        @Html.Hidden("ProductId", Model.ProductId)
+                        <div class="row">
+                            <label class="col-md-3">
+                                Ürün Açıklaması
+                            </label>
+                            <div class="col-md-9">
+                                @Html.TextBoxFor(x => x.ProductDescription, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px;">
+                            <label class="col-md-2"></label>
+                            <div class="col-md-10">
+                                <button type="submit" class="btn btn-success">Ekle</button>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+    }
+</section>
+

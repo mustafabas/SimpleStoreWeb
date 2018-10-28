@@ -1,0 +1,33 @@
+﻿@model List<MvcProjectArch.UI.Models.Catolog.TreeDepthModel>
+@{
+    ViewBag.Title = "TreeDepth";
+    Layout = "~/Views/Shared/MainMaster.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Ürün Ağacı Bilgileri
+        <small>Ürün Yönetimi</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Ürün Yönetimi</a></li>
+        <li class="active">Ürün Yönetimi</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="col-md-12">
+    
+        @foreach (var item in Model)
+        {
+            <p><h3>@item.CategoryName</h3> Eleman sayısı: @item.TreeSize Derinlik:@item.Depth Düzey Eleman Sayısı:<ul>@for (int i = 0; i < item.Depth; i++)
+            {
+                <li>@i düzey @item.DepthItemCount[i]</li>
+            }
+            </ul>
+             </p>
+
+        }
+    </div>
+
+</section>
