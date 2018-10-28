@@ -1,2 +1,2 @@
-# SimpleStoreWeb
-Simple store .net web application with data structures and entityframework code first. I  created this project for homework. İt take almost 15-20 hours.
+# SimpleStoreWeb For Univetsity Homework
+I created this application using .net with data structures and entityframework codefirst.İt is for the 2.grade data structures lessons homework. This project developing took almost 20 hours. 
